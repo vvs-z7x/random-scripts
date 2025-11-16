@@ -1,0 +1,324 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/starving-artists/main/test.lua", true))()
+
+local NotificationLibrary =
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/TALENTLESS/main/notif_lib.lua"))(
+)
+
+loadstring(
+    game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/discordpopup/main/discordpopup.lua", true)
+)()
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TopBar = Instance.new("Frame")
+local TopBarCorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local CloseCorner = Instance.new("UICorner")
+local ContentFrame = Instance.new("Frame")
+local Instructions = Instance.new("TextLabel")
+local URLBox = Instance.new("TextBox")
+local URLCorner = Instance.new("UICorner")
+local DrawButton = Instance.new("TextButton")
+local DrawCorner = Instance.new("UICorner")
+local HelpButton = Instance.new("TextButton")
+local HelpCorner = Instance.new("UICorner")
+local Credits = Instance.new("TextLabel")
+local IconLabel = Instance.new("TextLabel")
+
+-- Properties
+ScreenGui.Parent = game:GetService("CoreGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.Size = UDim2.new(0, 450, 0, 280)
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = MainFrame
+
+TopBar.Name = "TopBar"
+TopBar.Parent = MainFrame
+TopBar.BackgroundColor3 = Color3.fromRGB(60, 60, 75)
+TopBar.BorderSizePixel = 0
+TopBar.Size = UDim2.new(1, 0, 0, 50)
+
+TopBarCorner.CornerRadius = UDim.new(0, 12)
+TopBarCorner.Parent = TopBar
+
+Title.Name = "Title"
+Title.Parent = TopBar
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0, 50, 0, 0)
+Title.Size = UDim2.new(1, -100, 1, 0)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "Starving Artists Auto-Drawer"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 20
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+IconLabel.Name = "IconLabel"
+IconLabel.Parent = TopBar
+IconLabel.BackgroundTransparency = 1
+IconLabel.Position = UDim2.new(0, 15, 0, 12)
+IconLabel.Size = UDim2.new(0, 26, 0, 26)
+IconLabel.Font = Enum.Font.GothamBold
+IconLabel.Text = "🎨"
+IconLabel.TextColor3 = Color3.fromRGB(150, 200, 255)
+IconLabel.TextSize = 22
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = TopBar
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 90, 90)
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(1, -40, 0, 10)
+CloseButton.Size = UDim2.new(0, 30, 0, 30)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.Text = "×"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 24
+
+CloseCorner.CornerRadius = UDim.new(0, 8)
+CloseCorner.Parent = CloseButton
+
+ContentFrame.Name = "ContentFrame"
+ContentFrame.Parent = MainFrame
+ContentFrame.BackgroundTransparency = 1
+ContentFrame.Position = UDim2.new(0, 0, 0, 60)
+ContentFrame.Size = UDim2.new(1, 0, 1, -60)
+
+Instructions.Name = "Instructions"
+Instructions.Parent = ContentFrame
+Instructions.BackgroundTransparency = 1
+Instructions.Position = UDim2.new(0, 25, 0, 15)
+Instructions.Size = UDim2.new(1, -50, 0, 25)
+Instructions.Font = Enum.Font.Gotham
+Instructions.Text = "Enter Image URL:"
+Instructions.TextColor3 = Color3.fromRGB(200, 200, 210)
+Instructions.TextSize = 14
+Instructions.TextXAlignment = Enum.TextXAlignment.Left
+
+URLBox.Name = "URLBox"
+URLBox.Parent = ContentFrame
+URLBox.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+URLBox.BorderSizePixel = 0
+URLBox.Position = UDim2.new(0, 25, 0, 45)
+URLBox.Size = UDim2.new(1, -50, 0, 40)
+URLBox.Font = Enum.Font.Gotham
+URLBox.PlaceholderText = "https://i.imgur.com/example.jpg"
+URLBox.PlaceholderColor3 = Color3.fromRGB(120, 120, 130)
+URLBox.Text = ""
+URLBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+URLBox.TextSize = 13
+URLBox.TextXAlignment = Enum.TextXAlignment.Left
+URLBox.TextTruncate = Enum.TextTruncate.AtEnd
+
+URLCorner.CornerRadius = UDim.new(0, 8)
+URLCorner.Parent = URLBox
+
+DrawButton.Name = "DrawButton"
+DrawButton.Parent = ContentFrame
+DrawButton.BackgroundColor3 = Color3.fromRGB(100, 150, 255)
+DrawButton.BorderSizePixel = 0
+DrawButton.Position = UDim2.new(0, 25, 0, 100)
+DrawButton.Size = UDim2.new(1, -50, 0, 45)
+DrawButton.Font = Enum.Font.GothamBold
+DrawButton.Text = "Start Auto-Draw"
+DrawButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+DrawButton.TextSize = 16
+
+DrawCorner.CornerRadius = UDim.new(0, 8)
+DrawCorner.Parent = DrawButton
+
+HelpButton.Name = "HelpButton"
+HelpButton.Parent = ContentFrame
+HelpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 75)
+HelpButton.BorderSizePixel = 0
+HelpButton.Position = UDim2.new(0, 25, 0, 155)
+HelpButton.Size = UDim2.new(1, -50, 0, 30)
+HelpButton.Font = Enum.Font.Gotham
+HelpButton.Text = "Need Help?"
+HelpButton.TextColor3 = Color3.fromRGB(200, 200, 210)
+HelpButton.TextSize = 13
+
+HelpCorner.CornerRadius = UDim.new(0, 8)
+HelpCorner.Parent = HelpButton
+
+Credits.Name = "Credits"
+Credits.Parent = ContentFrame
+Credits.BackgroundTransparency = 1
+Credits.Position = UDim2.new(0, 25, 1, -25)
+Credits.Size = UDim2.new(1, -50, 0, 20)
+Credits.Font = Enum.Font.Gotham
+Credits.Text = "Made by hellohellohell012321"
+Credits.TextColor3 = Color3.fromRGB(120, 120, 130)
+Credits.TextSize = 11
+Credits.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Utility Functions
+local function playSound(soundId, loudness)
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://" .. soundId
+    sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
+    sound.Volume = loudness or 1
+    sound:Play()
+end
+
+local function changeColor(hex)
+    local player = game:GetService("Players").LocalPlayer
+    local textBox = player.PlayerGui.MainGui.PaintFrame.ColorFrame.HexCode.TextBox
+
+    textBox.Text = hex
+
+    for _, connection in ipairs(getconnections(textBox.FocusLost)) do
+        connection:Fire(true)
+    end
+end
+
+local function goToStool()
+    local playerName = game.Players.LocalPlayer.Name
+    local stool = game.Workspace.Plots:FindFirstChild(playerName) and game.Workspace.Plots[playerName].Stool
+    stool:Sit(game.Players.LocalPlayer.Character.Humanoid)
+end
+
+local function auto(imgur)
+    local HttpService = game:GetService("HttpService")
+    local httprequest = request or http_request or (syn and syn.request) or (http and http.request) or (fluxus and fluxus.request)
+
+    local url = "https://starving-artists-api.vercel.app/api/pixelart"
+    
+    print("Request starting...")
+
+    local response = httprequest({
+        Url = url,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode({ imageUrl = imgur })
+    })
+
+    print("Request sent")
+    print(HttpService:JSONEncode({ imageUrl = imgur }))
+
+    if response and response.StatusCode == 200 then
+        local data = HttpService:JSONDecode(response.Body)
+        local pixelsTable = data.pixels
+
+        print("Request successful!")
+        print("Processing image...")
+
+        for i = 1, #pixelsTable do
+            local player = game:GetService("Players").LocalPlayer
+            local location = player.PlayerGui.MainGui.PaintFrame.GridHolder.Grid:FindFirstChild(tostring(i))
+
+            if location then
+                changeColor(pixelsTable[i])
+                for _, conn in ipairs(getconnections(location.MouseButton1Down, location.MouseButton1Click, location.MouseButton1Up)) do
+                    conn:Fire()
+                end
+            end
+        end
+        spawn(function()
+            playSound("6493287948", 0.1)
+            NotificationLibrary:SendNotification("Success", "Auto-draw completed! Please wait 3-5 minutes before uploading to avoid issues.", 5)
+        end)
+    else
+        warn("Request failed:", response and response.StatusCode)
+        warn("Response body:", response and response.Body)
+        playSound("6493287948", 0.1)
+        NotificationLibrary:SendNotification("Error", "Request failed: " .. tostring(response and response.StatusCode), 10)
+        NotificationLibrary:SendNotification("Error", "Response body: " .. tostring(response and HttpService:JSONEncode(response.Body)), 10)
+    end
+end
+
+-- Drag Functionality
+local UserInputService = game:GetService("UserInputService")
+local gui = MainFrame
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+gui.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = gui.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+gui.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+-- Button Hover Effects
+DrawButton.MouseEnter:Connect(function()
+    DrawButton.BackgroundColor3 = Color3.fromRGB(120, 170, 255)
+end)
+
+DrawButton.MouseLeave:Connect(function()
+    DrawButton.BackgroundColor3 = Color3.fromRGB(100, 150, 255)
+end)
+
+HelpButton.MouseEnter:Connect(function()
+    HelpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 85)
+end)
+
+HelpButton.MouseLeave:Connect(function()
+    HelpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 75)
+end)
+
+CloseButton.MouseEnter:Connect(function()
+    CloseButton.BackgroundColor3 = Color3.fromRGB(255, 110, 110)
+end)
+
+CloseButton.MouseLeave:Connect(function()
+    CloseButton.BackgroundColor3 = Color3.fromRGB(255, 90, 90)
+end)
+
+-- Button Actions
+DrawButton.MouseButton1Click:Connect(function()
+    goToStool()
+    wait(0.5)
+
+    local imgUrl = URLBox.Text
+
+    if imgUrl == "" then
+        NotificationLibrary:SendNotification("Error", "Please enter a valid image URL!", 5)
+    else
+        auto(imgUrl)
+    end
+end)
+
+HelpButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/starving-artists/main/faq.lua"))()
+end)
+
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
